@@ -1,7 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
 // import { products } from "../../data/products"; // Import product data
-import { dummyProducts } from "../../data/products";
+import { products } from "../../data/products";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -31,12 +31,19 @@ const ProductDetails = () => {
 
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
-      const dummyProduct = dummyProducts.find((p) => p.id === id);
-      setProduct(dummyProduct || null);
-      setIsLoading(false);
-    }, 1000); // Simulating a loading delay
-  }, [id]);
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8000/api/products/${params.id}`);
+        setProduct(response.data.product);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProduct();
+  }, [params.id]);
 
   if (isLoading) {
     return (

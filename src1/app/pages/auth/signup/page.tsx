@@ -79,7 +79,7 @@ export default function Register() {
     >
       <div className="bg-white p-6 rounded-2xl shadow-lg w-96 mt-16">
         <h2 className="text-2xl font-bold text-center mb-4">
-          <span className="text-blue-600">Sign Up</span> to Join KonnektGlobe
+          <span className="text-blue-600">Sign Up</span> to Join KONNKT
         </h2>
         <p className="text-gray-500 text-center mb-4">
           Ease of scheduling across the globe

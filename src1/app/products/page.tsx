@@ -4,19 +4,23 @@ import Link from "next/link";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import SkeletonProduct from "../components/SkeletonProduct";// Import Skeleton CSS
-import { dummyProducts } from "../data/products";
 
 // Define TypeScript interface for a product
 const Products = () => {
-  const [products, setProducts] = useState<typeof dummyProducts>([]);
+  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a loading delay (e.g., API call)
-    setTimeout(() => {
-      setProducts(dummyProducts);
-      setIsLoading(false);
-    }, 2000); // 2 seconds delay
+    axios
+      .get("http://localhost:8000/api/products")
+      .then((response) => {
+        setProducts(response.data.products);
+        setIsLoading(false); // Set loading to false after data is loaded
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+        setIsLoading(false);
+      });
   }, []);
 
   return (

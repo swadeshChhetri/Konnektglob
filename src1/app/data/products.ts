@@ -1,4 +1,4 @@
-export const dummyProducts = [
+export const products = [
   { "id": 1, "name": "Disposable Shoe Cover", "price": 2.5, "image": "/B2B/1.jpg", "category": "Medical", "city": "Delhi" },
   { "id": 2, "name": "Ultrasonic Cleaners", "price": 2500, "image": "/B2B/2.jpg", "category": "Electronics", "city": "Mumbai" },
   { "id": 3, "name": "Polished Acoustic Chair", "price": 4300, "image": "/B2B/3.jpg", "category": "Furniture", "city": "Bengaluru" },

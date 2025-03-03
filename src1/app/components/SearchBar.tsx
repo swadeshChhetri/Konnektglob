@@ -12,15 +12,15 @@ export default function SearchBar() {
   const handleSearch = () => {
     if (searchTerm.trim()) {
       if (searchType === "Products") {
-        router.push(`/pages/products/list?search=${searchTerm}`);
+        router.push(`/products/list?search=${searchTerm}`);
       } else {
-        router.push(`/pages/company/details?search=${searchTerm}`);
+        router.push(`/company/details?search=${searchTerm}`);
       }
     }
   };
 
   return (
-    <div className="flex items-center border rounded-full px-4 py-2 w-[35%]">
+    <div className="flex items-center border rounded-full px-4 py-2 w-1/2">
          
     <select className="text-sm text-light bg-dark focus:outline-none" 
     value={searchType}

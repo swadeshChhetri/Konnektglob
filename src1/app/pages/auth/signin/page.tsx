@@ -5,7 +5,6 @@ import { Mail, Lock } from "lucide-react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { useAuth } from "../../../context/AuthContext";
-import Link from "next/link";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -66,7 +65,7 @@ export default function Login() {
         className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-sm"
       >
         <h2 className="text-2xl font-semibold text-center mb-2">
-          <span className="text-blue-600">Log In</span> to KonnektGlobe
+          <span className="text-blue-600">Log In</span> to Konnekt
         </h2>
         <p className="text-gray-500 text-center mb-4">
           Let’s schedule with confidence
@@ -119,9 +118,9 @@ export default function Login() {
             {passwordError && <p className="text-red-500 text-sm mt-1">{passwordError}</p>} {/* Show error */}
           </div>
 
-          <Link href={"/pages/auth/forgotPassword"} className="text-right text-sm text-blue-600 mb-4 cursor-pointer">
+          <div className="text-right text-sm text-blue-600 mb-4 cursor-pointer">
             Forgot Password?
-          </Link>
+          </div>
 
           <motion.button
             aria-label="Log In"
