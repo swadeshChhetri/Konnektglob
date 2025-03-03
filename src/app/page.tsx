@@ -552,55 +552,60 @@ function HomePage() {
         <CategorySlider categories={homeCategories} />
       </div>
 
-      <div className="p-6">
-        <h2 className="text-2xl font-semibold mb-4">
-          Realestate, Building & Construction
-        </h2>
-        <div className="border border-gray-300 rounded-lg p-4 grid md:grid-cols-3 gap-4">
-          <motion.div
-            className="relative col-span-1 bg-cover bg-center text-white p-6 rounded-lg flex flex-col justify-end"
-            style={{ backgroundImage: "url('/construction-bg.jpg')" }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="text-lg font-semibold">Wood and Lumber</p>
-            <p>Cladding Materials and Building Panels</p>
-            <p>Bricks & Construction Materials</p>
-            <p>Doors & Windows</p>
-            <Link href="/products">
-            <button className="mt-4 bg-secondary text-white px-4 py-2 rounded-lg">
-              View All
-            </button>
-            </Link>
-          </motion.div>
+      <div className="p-8 bg-gray-100 rounded-xl shadow-md">
+      <h2 className="text-3xl font-bold text-gray-800 mb-6">
+        Real Estate, Building & Construction
+      </h2>
 
-          <div className="col-span-2 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {categories3.map((category, index) => (
-              <motion.div
-                key={index}
-                className="border p-4 rounded-lg flex justify-between items-center"
-                whileHover={{ scale: 1.05 }}
-              >
-                <div>
-                  <h3 className="font-semibold text-lg">{category.title}</h3>
-                  {category.links.map((link, i) => (
-                    <p key={i} className="text-blue-500 text-sm cursor-pointer">
-                      {link}
-                    </p>
-                  ))}
-                </div>
-                <img
-                  src={category.image}
-                  alt={category.title}
-                  className="w-16 h-16 object-cover"
-                />
-                <ArrowRight className="text-blue-500" />
-              </motion.div>
-            ))}
+      <div className="grid lg:grid-cols-3 gap-6">
+        {/* Featured Category */}
+        <motion.div
+          className="relative col-span-1 bg-cover bg-center p-8 rounded-xl flex flex-col justify-end shadow-lg text-white"
+          style={{ backgroundImage: "url('/construction-bg.jpg')" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="bg-black/50 p-6 rounded-lg">
+            <h3 className="text-xl font-bold">Building Essentials</h3>
+            <p className="text-sm opacity-80">
+              High-quality materials for modern construction needs.
+            </p>
+            <Link href="/products">
+              <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition">
+                View All
+              </button>
+            </Link>
           </div>
+        </motion.div>
+
+        {/* Category Cards */}
+        <div className="col-span-2 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {categories3.map((category, index) => (
+            <motion.div
+              key={index}
+              className="bg-white p-6 rounded-xl shadow-md flex flex-col gap-3 transition hover:scale-105 cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+            >
+              <img
+                src={category.image}
+                alt={category.title}
+                className="w-20 h-20 object-cover rounded-lg"
+              />
+              <h3 className="text-lg font-semibold text-gray-800">
+                {category.title}
+              </h3>
+              {category.links.map((link, i) => (
+                <p key={i} className="text-blue-500 text-sm hover:underline">
+                  {link}
+                </p>
+              ))}
+              <ArrowRight className="text-blue-500 mt-2" />
+            </motion.div>
+          ))}
         </div>
       </div>
+    </div>
 
       <div className="p-6">
         <h2 className="text-2xl font-semibold mb-4">
@@ -725,13 +730,7 @@ function HomePage() {
           {/* Left Side - Image & Animation */}
           <div className="w-1/2 relative p-6 flex items-center justify-center">
             <div className="relative">
-              <Image
-                src="/B2B/connect.png"
-                alt="User"
-                width={300}
-                height={300}
-                className="rounded-full"
-              />
+             
               {/* Floating Icons */}
               <div className="absolute top-6 left-[-30px] bg-white p-2 rounded-lg shadow-md text-xs">
                 Great deals with Incredible Sellers all over India

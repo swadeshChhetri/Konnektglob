@@ -33,7 +33,12 @@ export default function Header() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isUserMenuOpen, setUserMenuOpen] = useState(false);
+  const [showAllCities, setShowAllCities] = useState(false);
 
+  const topCities = ["Delhi", "Mumbai", "Bengaluru", "Chennai", "Kolkata"];
+  const allCities = [
+    "Delhi", "Mumbai", "Bengaluru", "Chennai", "Kolkata", "Hyderabad", "Pune", "Ahmedabad", "Jaipur", "Lucknow"
+  ];
 
   useEffect(() => {
     const fetchUserCount = async () => {
@@ -88,12 +93,20 @@ export default function Header() {
                 placeholder="Search city..."
                 className="w-full p-2 border rounded-md text-sm"
               />
-              <ul className="mt-2 text-sm">
-                {["All Cities", "Delhi", "Mumbai", "Bengaluru"].map((city) => (
+               <ul className="mt-2 text-sm">
+                {(showAllCities ? allCities : topCities).map((city) => (
                   <li key={city} onClick={() => { setSelectedCity(city); setDropdownOpen(false); }}>
                     {city}
                   </li>
                 ))}
+                {!showAllCities && (
+                  <li
+                    className="text-blue-500 cursor-pointer"
+                    onClick={() => setShowAllCities(true)}
+                  >
+                    All Cities
+                  </li>
+                )}
               </ul>
             </div>
           )}
