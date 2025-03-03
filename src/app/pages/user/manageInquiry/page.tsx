@@ -1,7 +1,9 @@
 "use client"
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Sidebar } from "lucide-react";
 import { useState } from "react";
+import UserSidebar from "../../../components/UserSidebar";
+
 
 const steps = [
   { id: 1, label: "Name your project" },
@@ -14,7 +16,10 @@ export default function ProjectTracker() {
   const [completedStep, setCompletedStep] = useState(2); // Change to track step completion
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen pt-20">
+  
+    <div className="flex h-screen bg-gray-100">
+      <UserSidebar/>
+      <main className="flex-1 p-6">
       <h1 className="text-2xl font-semibold mb-8">Create new project</h1>
       <div className="flex items-center justify-between w-full max-w-3xl mx-auto">
         {steps.map((step, index) => (
@@ -37,6 +42,8 @@ export default function ProjectTracker() {
           </div>
         ))}
       </div>
+      </main>
     </div>
+    
   );
 }

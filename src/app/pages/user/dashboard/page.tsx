@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Home, List, Settings, Monitor} from 'lucide-react';
 import Link from 'next/link';
-
+import UserSidebar from './../../../components/UserSidebar';
 
 const Dashboard = () => {
   const [active, setActive] = useState('Dashboard');
@@ -18,26 +18,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <div className="w-64 bg-white shadow-lg p-5">
-        <h2 className="text-xl font-bold mb-6">Dashboard</h2>
-        <ul>
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`flex items-center p-3 rounded-lg cursor-pointer transition-colors duration-300 ${
-                active === item.name ? 'bg-orange-200 text-orange-600' : 'text-gray-600'
-              }`}
-              onClick={() => setActive(item.name)}
-            >
-              <item.icon className="w-5 h-5 mr-3" />
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-      </div>
-
+      <UserSidebar/>
       {/* Main Content */}
       <div className="flex-1 p-6">
         {/* Heading */}

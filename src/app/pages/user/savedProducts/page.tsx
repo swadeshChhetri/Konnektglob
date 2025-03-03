@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Trash2 } from "lucide-react";
+import UserSidebar from "../../../components/UserSidebar";
 
 const wishlistItems = [
   {
@@ -36,7 +37,9 @@ export default function Wishlist() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto pt-15 p-6 bg-white rounded-lg shadow">
+    <div className="flex h-screen bg-gray-100">
+    <UserSidebar/>
+    <div className="flex-1 p-6 bg-white rounded-lg shadow">
       <h1 className="text-2xl font-bold mb-4">My Wishlist ✏️</h1>
       <div className="overflow-x-auto">
         <table className="w-full border-collapse border border-gray-200">
@@ -91,6 +94,7 @@ export default function Wishlist() {
           </tbody>
         </table>
       </div>
+    </div>
     </div>
   );
 }

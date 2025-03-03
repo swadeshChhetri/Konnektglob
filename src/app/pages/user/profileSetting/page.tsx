@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Upload, Trash2 } from "lucide-react";
+import UserSidebar from "../../../components/UserSidebar";
 
 export default function ProfileSettings() {
   const [profile, setProfile] = useState({
@@ -15,7 +16,10 @@ export default function ProfileSettings() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto pt-10 p-6 bg-white rounded-lg shadow">
+    <div className="flex h-screen bg-gray-100">
+    <UserSidebar/>
+    {/* Main Content */}
+    <div className="flex-1 p-6 bg-white rounded-lg shadow">
       {/* Breadcrumb */}
       <p className="text-gray-500 text-sm mb-2">Account settings / <span className="text-black font-semibold">Profile</span></p>
       
@@ -87,6 +91,7 @@ export default function ProfileSettings() {
           <Trash2 size={16} /> Delete account
         </button>
       </div>
+    </div>
     </div>
   );
 }
