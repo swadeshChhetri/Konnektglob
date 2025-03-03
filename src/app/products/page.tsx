@@ -4,7 +4,7 @@ import Link from "next/link";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import SkeletonProduct from "../components/SkeletonProduct";// Import Skeleton CSS
-import { dummyProducts } from "../data/products";
+import { dummyProducts } from "../data/product";
 
 // Define TypeScript interface for a product
 const Products = () => {
@@ -37,8 +37,8 @@ const Products = () => {
             />
             </Link>
             <p className="font-semibold text-sm mb-1">{product.name}</p>
-            {/* <p className="text-gray-600 text-sm">₹ {product.price} / Piece</p>
-             */}
+            <p className="text-gray-600 text-sm">₹ {product.price} / Piece</p>
+            
             {/* Buttons */}
             <div className="mt-3 flex gap-2 w-full">
               <button className="flex-1 bg-gray-200 text-gray-800 px-3 py-2 text-sm rounded-md">
