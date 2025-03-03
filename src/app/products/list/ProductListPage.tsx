@@ -2,10 +2,10 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { products } from "../../data/products";
 import Link from "next/link";
 import { useCity } from "../../context/CityContext";
 import Image from "next/image";
+import { dummyProducts } from "../../data/product";
 
 export default function ProductListPage() {
   const { selectedCity } = useCity();
@@ -16,7 +16,7 @@ export default function ProductListPage() {
 
   useEffect(() => {
     setIsLoading(true);
-    let filtered = products;
+    let filtered = dummyProducts;
 
     // Apply city filter (if city is not "All Cities")
     if (selectedCity !== "All Cities") {
@@ -38,7 +38,7 @@ export default function ProductListPage() {
     return <p>Loading products...</p>;
   }
 
-  if (!products || products.length === 0) {
+  if (!filteredProducts || filteredProducts.length === 0) {
     return <p>No products available.</p>;
   }
 

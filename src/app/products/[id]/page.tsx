@@ -1,7 +1,6 @@
 "use client";
 import { useParams } from "next/navigation";
 // import { products } from "../../data/products"; // Import product data
-import { dummyProducts } from "../../data/products";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -12,6 +11,7 @@ import InquiryFormModal from "../../components/InquiryModal";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton"; // Import Skeleton Loader
 import "react-loading-skeleton/dist/skeleton.css"; // Import Skeleton CSS
+import { dummyProducts } from "../../data/product";
 
 
 const ProductDetails = () => {
